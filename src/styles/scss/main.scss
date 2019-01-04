@@ -1,25 +1,36 @@
 @import 'parts/default';
+.calculationContainer {
+    height: 5em;
+    background-color: #fff;
+    text-align: right;
+    font-family: sans-serif;
+    .calculation{
+        font-size: 1.4em;
+        height: 2em;
+    }
+    .result{
+        font-size: 2em;
+    }
+}
 
-body {
-    text-align: center;
-    margin: 1em 0;
-    h1 {
-        background-color: #fff;
-        text-align: center;
-        color: #000;
-        font-family: sans-serif;
+.historyContainer {
+    height: 3em;
+}
+
+.buttonContainer {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    button {
+        padding: 1em;
+        font-size: 1.3em;
+        img {
+            max-width: 100%;
+            position: relative;
+        }
     }
-    h2{
-        font-family: sans-serif;
-        color: rgb(82, 82, 82);
-    }
-    img{
-        width: 80%;
-        max-width: 40em;
-        margin: auto;
-        display: block;
-        box-shadow: 0 0 10px red;
-        max-height: 10em;
-        object-fit: cover;
+    .plusMinus {
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 1.5em;
     }
 }

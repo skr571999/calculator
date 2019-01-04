@@ -5,24 +5,58 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Gulp4 - Demo</title>
+    <title>Calculator</title>
 
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
-    <!-- This is a comment -->
-    <h1>Gulp4 Demo</h1>
-    <h2>First Task Complete - SCSS, BrowserSync</h2>
-    <img src="./images/apple-devices.jpg" alt="Apple Devices">
-    <br>
-    <hr>
-    <img src="./images/mackBook.jpg" alt="MackBook">
-    <br>
-    <hr>
-    <h2>
-        <a href="about.html">About Page</a>
-    </h2>
+    <section class="titleContainer">
+        Calculator
+    </section>
+    <section class="calculationContainer">
+        <div class="calculation"></div>
+        <div class="result"></div>
+    </section>
+    <section class="historyContainer">
+        <button>MC</button>
+        <button>MR</button>
+        <button>M+</button>
+        <button>M-</button>
+        <button>MS</button>
+        <button>M^</button>
+    </section>
+    <section class="buttonContainer">
+        <button data-value="%">%</button>
+        <button class="plusMinus" data-value="root" style="background-image: url(images/root.png)">
+        </button>
+        <button data-value="^">x^2</button>
+        <button data-value="">1/x</button>
+        <button data-value="clearAll">CE</button>
+        <button data-value="clear">C</button>
+        <button class="plusMinus" data-value="clear" style="background-image: url(images/clear.png)">
+        </button>
+        <button data-value="/">÷</button>
+        <button data-value="7">7</button>
+        <button data-value="8">8</button>
+        <button data-value="9">9</button>
+        <button data-value="*">✕</button>
+        <button data-value="4">4</button>
+        <button data-value="5">5</button>
+        <button data-value="6">6</button>
+        <button data-value="-">-</button>
+        <button data-value="1">1</button>
+        <button data-value="2">2</button>
+        <button data-value="3">3</button>
+        <button data-value="+">+</button>
+        <button class="plusMinus" data-value="plusMinus" style="background-image: url(images/plusMinus.png)">
+        </button>
+        <button data-value="0">0</button>
+        <button data-value=".">.</button>
+        <button data-value="=">=</button>
+    </section>
+
+    <script src="scripts/main.js"></script>
 </body>
 
 </html>

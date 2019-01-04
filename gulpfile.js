@@ -37,6 +37,11 @@ function scssTask() {
         .pipe(browserSync.stream());
 }
 
+function scriptTask() {
+    return src(s + 'scripts/*.js')
+        .pipe(dest(d + 'scripts/'))
+}
+
 function imageminTask() {
     return src(s + 'images/**/*')
         .pipe(newer(d + 'images/**/*'))
@@ -53,6 +58,7 @@ function serverTask() {
     watch(s + 'html/*.html', { ignoreInitial: false }, htmlTask)
     // watch(s + 'pug/*.pug', { ignoreInitial: false }, pugTask)
     watch(s + 'styles/scss/**/*.scss', { ignoreInitial: false }, scssTask)
+    watch(s + 'scripts/**/*.js', { ignoreInitial: false }, scriptTask)
     watch(s + 'images/**/*', { ignoreInitial: false }, imageminTask)
     watch(d + '**/*').on('change', browserSync.reload);
 }
