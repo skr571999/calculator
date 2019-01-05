@@ -9,10 +9,10 @@ for (let i = 0; i < btn.length; i++) {
     })
 }
 
-let result = '';
-let value1, value2;
-
+let result = 0;
 res.innerHTML = result;
+let value1 = '', value2 = 0;
+let operatorStatus = '+';
 
 function putVal(a) {
     switch (a) {
@@ -26,29 +26,61 @@ function putVal(a) {
         case '8':
         case '9':
         case '0':
-            cal.innerHTML += a
-            value2 = (cal.innerHTML).split('+')[1]
-            console.log(value2)
-            doOperation();
+            value1 += a;
+            cal.innerHTML += a;
+            findResult();
             break;
         case '+':
+            operatorStatus = '+';
+            cal.innerHTML += ' + '
+            res.innerHTML = ' '
+            value2 = parseInt(result);
+            value1 = ''
+            break;
         case '*':
+            operatorStatus = '*';
+            cal.innerHTML += ' ✕ '
+            res.innerHTML = ' '
+            value2 = parseInt(result);
+            value1 = ''
+            break;
         case '/':
+            operatorStatus = '/';
+            cal.innerHTML += ' ÷ '
+            res.innerHTML = ' '
+            value2 = parseInt(result);
+            value1 = ''
+            break;
         case '-':
+            operatorStatus = '-';
+            cal.innerHTML += ' - '
+            res.innerHTML = ' '
+            value2 = parseInt(result);
+            value1 = ''
+            break;
         case '%':
-            value1 = cal.innerHTML;
-            cal.innerHTML += (' ' + a)
-            console.log(value1)
-            // cal.innerHTML = value1;
-            res.innerHTML = '';
+            console.log('%');
             break;
         case '=':
             console.log('=');
+            findResult();
+            break;
+        case 'clear':
+            value1 = value1.slice(0, (value1.length - 1));
+            cal.innerHTML = cal.innerHTML.trim();
+            cal.innerHTML = cal.innerHTML.slice(0, value1.length)
+            console.log(cal.innerHTML)
+            console.log('value1 = ' + value1 + ' value2 = ' + value2 + ' result = ' + result)
+            findResult()
             break;
         case 'clearAll':
             console.log(a);
+            operatorStatus = '+'
             cal.innerHTML = ''
             res.innerHTML = ''
+            result = 0;
+            value2 = 0;
+            value1 = ''
             break;
         case 'plusMinus':
             console.log('PlusMinus')
@@ -62,11 +94,28 @@ function putVal(a) {
     }
 }
 
-function doOperation() {
-    if (value1 >= 0 && value2 >= 0) {
-        value1 = parseInt(value1);
-        value2 = parseInt(value2);
-        result = value1 + value2;
-        res.innerHTML = result;
+function findResult() {
+    if (value1 !== '' && value2 !== '') {
+        let val1 = parseInt(value1);
+        let val2 = parseInt(value2);
+        switch (operatorStatus) {
+            case '+':
+                result = val1 + val2;
+                res.innerHTML = result;
+                break;
+            case '*':
+                result = val1 * val2;
+                res.innerHTML = result;
+                break;
+            case '-':
+                result = val2 - val1;
+                res.innerHTML = result;
+                break;
+            case '/':
+                result = val2 / val1;
+                res.innerHTML = result;
+                break;
+        }
     }
+    console.log('2 : value1 = ' + value1 + ' value2 = ' + value2 + ' result = ' + result)
 }

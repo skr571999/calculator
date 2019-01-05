@@ -1,15 +1,33 @@
-@import 'parts/default';
+body {
+    background-color: #ffd1d1;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.titleContainer {
+    background-color: rgb(255, 129, 129);
+    min-height: 7vh;
+    a{
+        text-decoration: none;
+        font-family: sans-serif;
+        display: block;
+        font-size: 4vh;
+    }
+}
+
 .calculationContainer {
-    height: 5em;
+    height: 15vh;
     background-color: #fff;
     text-align: right;
     font-family: sans-serif;
-    .calculation{
-        font-size: 1.4em;
+    .calculation {
+        font-size: 3vh;
         height: 2em;
     }
-    .result{
-        font-size: 2em;
+    .result {
+        font-size: 4vh;
     }
 }
 
@@ -19,10 +37,11 @@
 
 .buttonContainer {
     display: grid;
+    height: 78vh;
     grid-template-columns: 25% 25% 25% 25%;
     button {
-        padding: 1em;
-        font-size: 1.3em;
+        padding: 2vh;
+        font-size: 3vh;
         img {
             max-width: 100%;
             position: relative;
