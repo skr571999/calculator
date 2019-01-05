@@ -1,33 +1,44 @@
+$primary-color: #e4e4e4;
+
 body {
-    background-color: #ffd1d1;
+    background-color: $primary-color;
     height: 100%;
     margin: 0;
     display: flex;
     flex-direction: column;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 .titleContainer {
-    background-color: rgb(255, 129, 129);
-    min-height: 7vh;
-    a{
-        text-decoration: none;
-        font-family: sans-serif;
-        display: block;
-        font-size: 4vh;
+    background-color: $primary-color;
+    height: 7vh;
+    div{
+        margin-top: 2vh;
+        padding-left: 2vh;
+        a{
+            color: black;
+            text-decoration: none;
+            font-family: sans-serif;
+            font-size: 3vh;
+        }
     }
 }
 
 .calculationContainer {
-    height: 15vh;
-    background-color: #fff;
+    height: 20vh;
+    background-color: $primary-color;
     text-align: right;
     font-family: sans-serif;
+    padding-right: 3vh;
     .calculation {
         font-size: 3vh;
         height: 2em;
     }
     .result {
-        font-size: 4vh;
+        font-size: 5vh;
     }
 }
 
@@ -37,11 +48,26 @@ body {
 
 .buttonContainer {
     display: grid;
-    height: 78vh;
+    height: 72.8vh;
     grid-template-columns: 25% 25% 25% 25%;
     button {
         padding: 2vh;
-        font-size: 3vh;
+        font-size: 4vh;
+        margin: .2vh;
+        background-color: #EEEEEE;
+        border: none;
+        transition: .1s ease-in;
+        &:hover{
+            background-color: #e0e0e0;
+            box-shadow: 0 0 3px #4d4d4d;
+        }
+        &:active{
+            background-color: #ebebeb;
+            border: none;
+        }
+        &:focus{
+            outline: 0;
+        }
         img {
             max-width: 100%;
             position: relative;
@@ -51,5 +77,18 @@ body {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 1.5em;
+    }
+    .numButton{
+        font-weight: bold;
+        background-color: #fafafa;
+    }
+    .operationButton{
+        &:hover{
+            background-color: #3b5fff;
+            color: white;
+        }
+        &:active{
+            background-color: #839aff;
+        }
     }
 }

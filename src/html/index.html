@@ -6,13 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Calculator</title>
-
+    <meta name="theme-color" content="#e4e4e4">
+    <link rel="icon" sizes="192x192" href="./images/icon.png">
     <link rel="stylesheet" href="./styles/main.css">
 </head>
 
 <body>
     <section class="titleContainer">
-        <a href="">Calculator</a>
+        <div>
+            <a href="">Calculator</a>
+        </div>
     </section>
     <section class="calculationContainer">
         <div class="calculation"></div>
@@ -36,24 +39,24 @@
         <button data-value="clear">C</button>
         <button class="plusMinus" data-value="clear" style="background-image: url(images/clear.png)">
         </button>
-        <button data-value="/">÷</button>
-        <button data-value="7">7</button>
-        <button data-value="8">8</button>
-        <button data-value="9">9</button>
-        <button data-value="*">✕</button>
-        <button data-value="4">4</button>
-        <button data-value="5">5</button>
-        <button data-value="6">6</button>
-        <button data-value="-">-</button>
-        <button data-value="1">1</button>
-        <button data-value="2">2</button>
-        <button data-value="3">3</button>
-        <button data-value="+">+</button>
+        <button class="operationButton" data-value="/">÷</button>
+        <button class="numButton" data-value="7">7</button>
+        <button class="numButton" data-value="8">8</button>
+        <button class="numButton" data-value="9">9</button>
+        <button class="operationButton" data-value="*">✕</button>
+        <button class="numButton" data-value="4">4</button>
+        <button class="numButton" data-value="5">5</button>
+        <button class="numButton" data-value="6">6</button>
+        <button class="operationButton" data-value="-">-</button>
+        <button class="numButton" data-value="1">1</button>
+        <button class="numButton" data-value="2">2</button>
+        <button class="numButton" data-value="3">3</button>
+        <button class="operationButton" data-value="+">+</button>
         <button class="plusMinus" data-value="plusMinus" style="background-image: url(images/plusMinus.png)">
         </button>
-        <button data-value="0">0</button>
+        <button class="numButton" data-value="0">0</button>
         <button data-value=".">.</button>
-        <button data-value="=">=</button>
+        <button class="operationButton" data-value="=">=</button>
     </section>
 
     <script src="scripts/main.js"></script>
