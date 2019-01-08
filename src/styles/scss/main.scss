@@ -1,24 +1,24 @@
 $primary-color: #e4e4e4;
-
 body {
     background-color: $primary-color;
     height: 100%;
-    margin: 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    max-width: 50em;
 }
 
-*{
+* {
     box-sizing: border-box;
 }
 
 .titleContainer {
     background-color: $primary-color;
     height: 7vh;
-    div{
+    div {
         margin-top: 2vh;
         padding-left: 2vh;
-        a{
+        a {
             color: black;
             text-decoration: none;
             font-family: sans-serif;
@@ -38,7 +38,8 @@ body {
         height: 2em;
     }
     .result {
-        font-size: 5vh;
+        font-size: 5.5vh;
+        font-weight: bold;
     }
 }
 
@@ -50,6 +51,18 @@ body {
     display: grid;
     height: 72.8vh;
     grid-template-columns: 25% 25% 25% 25%;
+    .item1 {
+        grid-column-start: 1;
+        grid-column-end: 3;
+    }
+    .zero {
+        grid-column-start: 1;
+        grid-column-end: 4;
+    }
+    .clear {
+        grid-column-start: 3;
+        grid-column-end: 5;
+    }
     button {
         padding: 2vh;
         font-size: 4vh;
@@ -57,15 +70,15 @@ body {
         background-color: #EEEEEE;
         border: none;
         transition: .1s ease-in;
-        &:hover{
+        &:hover {
             background-color: #e0e0e0;
             box-shadow: 0 0 3px #4d4d4d;
         }
-        &:active{
+        &:active {
             background-color: #ebebeb;
             border: none;
         }
-        &:focus{
+        &:focus {
             outline: 0;
         }
         img {
@@ -78,16 +91,16 @@ body {
         background-position: center;
         background-size: 1.5em;
     }
-    .numButton{
+    .numButton {
         font-weight: bold;
         background-color: #fafafa;
     }
-    .operationButton{
-        &:hover{
+    .operationButton {
+        &:hover {
             background-color: #3b5fff;
             color: white;
         }
-        &:active{
+        &:active {
             background-color: #839aff;
         }
     }

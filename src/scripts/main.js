@@ -68,8 +68,9 @@ function putVal(a) {
         case 'clear':
             value1 = value1.slice(0, (value1.length - 1));
             cal.innerHTML = cal.innerHTML.trim();
-            cal.innerHTML = cal.innerHTML.slice(0, value1.length)
-            console.log(cal.innerHTML)
+            let l = cal.innerHTML.length
+            cal.innerHTML = cal.innerHTML.slice(0, (l - 1))
+            l = cal.innerHTML.length
             console.log('value1 = ' + value1 + ' value2 = ' + value2 + ' result = ' + result)
             findResult()
             break;
@@ -101,21 +102,18 @@ function findResult() {
         switch (operatorStatus) {
             case '+':
                 result = val1 + val2;
-                res.innerHTML = result;
                 break;
             case '*':
                 result = val1 * val2;
-                res.innerHTML = result;
                 break;
             case '-':
                 result = val2 - val1;
-                res.innerHTML = result;
                 break;
             case '/':
                 result = val2 / val1;
-                res.innerHTML = result;
                 break;
         }
+        res.innerHTML = result;
     }
     console.log('2 : value1 = ' + value1 + ' value2 = ' + value2 + ' result = ' + result)
 }
