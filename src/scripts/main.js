@@ -9,10 +9,9 @@ for (let i = 0; i < btn.length; i++) {
     })
 }
 
-let result = 0;
-res.innerHTML = result;
-let value1 = '', value2 = 0;
-let operatorStatus = '+';
+let calculation = ''
+let operator = ''
+let t = '1234+123';
 
 function putVal(a) {
     switch (a) {
@@ -26,94 +25,75 @@ function putVal(a) {
         case '8':
         case '9':
         case '0':
-            value1 += a;
-            cal.innerHTML += a;
-            findResult();
+            calculation += a;
+            status();
+            doOperation();
             break;
         case '+':
-            operatorStatus = '+';
-            cal.innerHTML += ' + '
-            res.innerHTML = ' '
-            value2 = parseInt(result);
-            value1 = ''
+            calculation += ',';
+            operator += '+';
+            res.innerHTML = ''
+            status();
             break;
         case '*':
-            operatorStatus = '*';
-            cal.innerHTML += ' ✕ '
-            res.innerHTML = ' '
-            value2 = parseInt(result);
-            value1 = ''
+            calculation += ',';
+            operator += '*';
+            res.innerHTML = ''
+            status();
             break;
         case '/':
-            operatorStatus = '/';
-            cal.innerHTML += ' ÷ '
-            res.innerHTML = ' '
-            value2 = parseInt(result);
-            value1 = ''
+            calculation += ',';
+            operator += '/';
+            res.innerHTML = ''
+            status();
             break;
         case '-':
-            operatorStatus = '-';
-            cal.innerHTML += ' - '
-            res.innerHTML = ' '
-            value2 = parseInt(result);
-            value1 = ''
-            break;
-        case '%':
-            console.log('%');
-            break;
-        case '=':
-            console.log('=');
-            findResult();
+            calculation += ',';
+            operator += '-';
+            res.innerHTML = ''
+            status();
             break;
         case 'clear':
-            value1 = value1.slice(0, (value1.length - 1));
-            cal.innerHTML = cal.innerHTML.trim();
-            let l = cal.innerHTML.length
-            cal.innerHTML = cal.innerHTML.slice(0, (l - 1))
-            l = cal.innerHTML.length
-            console.log('value1 = ' + value1 + ' value2 = ' + value2 + ' result = ' + result)
-            findResult()
+            t = t.length - 1;
+            console.log('T : ' + t)
             break;
         case 'clearAll':
-            console.log(a);
-            operatorStatus = '+'
-            cal.innerHTML = ''
-            res.innerHTML = ''
-            result = 0;
-            value2 = 0;
-            value1 = ''
             break;
-        case 'plusMinus':
-            console.log('PlusMinus')
-            break;
-        case 'root':
-            console.log('root');
-            break;
-        default:
-            res.innerHTML += a
-            value = res.innerHTML;
     }
 }
 
-function findResult() {
-    if (value1 !== '' && value2 !== '') {
-        let val1 = parseInt(value1);
-        let val2 = parseInt(value2);
-        switch (operatorStatus) {
+function status() {
+    console.log('Calculation: ' + calculation + ' Operator: ' + operator)
+    let calculationList = calculation.split(',')
+    let operatorList = operator.split('')
+    let text = ''
+    for (let i = 0; i < calculationList.length; i++) {
+        text += ' ' + calculationList[i] + ' ' + (operatorList[i] || '')
+        console.log(text);
+    }
+    cal.innerHTML = text;
+}
+
+function doOperation() {
+    let calculationList = calculation.split(',')
+    let operatorList = operator.split('')
+    let result = parseInt(calculationList[0]) || 0
+    for (let i = 0; i < calculationList.length - 1; i++) {
+        let o = operatorList[i]
+        switch (o) {
             case '+':
-                result = val1 + val2;
-                break;
-            case '*':
-                result = val1 * val2;
+                result += parseInt(calculationList[i + 1]);
                 break;
             case '-':
-                result = val2 - val1;
+                result -= parseInt(calculationList[i + 1]);
+                break;
+            case '*':
+                result *= parseInt(calculationList[i + 1]);
                 break;
             case '/':
-                result = val2 / val1;
-                break;
+                result /= parseInt(calculationList[i + 1]);
         }
+        console.log('RES : ' + result)
         res.innerHTML = result;
     }
-    console.log('2 : value1 = ' + value1 + ' value2 = ' + value2 + ' result = ' + result)
 }
