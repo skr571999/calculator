@@ -51,7 +51,7 @@ function putVal(a) {
             calculation = calculation.trim().slice(0, (calculation.length - 1))
             if (calculation[calculation.length - 1] === ',') {
                 operatorStatus = true;
-            } else{
+            } else {
                 operatorStatus = false;
             }
             doOperation();
@@ -62,6 +62,7 @@ function putVal(a) {
             operator = ''
             doOperation();
             updateHtml();
+            operatorStatus = true;
             break;
     }
 }
@@ -79,7 +80,7 @@ function updateHtml() {
 function doOperation() {
     let calculationList = calculation.split(',')
     let operatorList = operator.split('')
-    let result = parseInt(calculationList[0]) || 0
+    let result = parseInt(calculationList[0]) || ''
     for (let i = 0; i < calculationList.length - 1; i++) {
         let o = operatorList[i]
         switch (o) {
