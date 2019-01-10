@@ -2,16 +2,16 @@ let btn = document.querySelectorAll('button');
 let cal = document.querySelector('.calculation');
 let res = document.querySelector('.result');
 
+let calculation = ''
+let operator = ''
+let operatorStatus = true
+
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', (e) => {
         if (e.srcElement.getAttribute('data-value') !== '')
             putVal(e.srcElement.getAttribute('data-value'))
     })
 }
-
-let calculation = ''
-let operator = ''
-let t = '1234+123';
 
 function putVal(a) {
     switch (a) {
@@ -26,50 +26,52 @@ function putVal(a) {
         case '9':
         case '0':
             calculation += a;
-            status();
+            operatorStatus = false;
             doOperation();
+            updateHtml();
             break;
         case '+':
-            calculation += ',';
-            operator += '+';
-            res.innerHTML = ''
-            status();
-            break;
         case '*':
-            calculation += ',';
-            operator += '*';
-            res.innerHTML = ''
-            status();
-            break;
         case '/':
-            calculation += ',';
-            operator += '/';
-            res.innerHTML = ''
-            status();
-            break;
         case '-':
-            calculation += ',';
-            operator += '-';
-            res.innerHTML = ''
-            status();
+            if (operatorStatus === false) {
+                calculation += ',';
+                operator += a;
+                res.innerHTML = ''
+                updateHtml();
+                operatorStatus = true;
+            } else {
+                alert('Operation Not Possible')
+            }
             break;
         case 'clear':
-            t = t.length - 1;
-            console.log('T : ' + t)
+            if (calculation[calculation.length - 1] === ',') {
+                operator = operator.trim().slice(0, (operator.length - 1))
+            }
+            calculation = calculation.trim().slice(0, (calculation.length - 1))
+            if (calculation[calculation.length - 1] === ',') {
+                operatorStatus = true;
+            } else{
+                operatorStatus = false;
+            }
+            doOperation();
+            updateHtml();
             break;
         case 'clearAll':
+            calculation = ''
+            operator = ''
+            doOperation();
+            updateHtml();
             break;
     }
 }
 
-function status() {
-    console.log('Calculation: ' + calculation + ' Operator: ' + operator)
+function updateHtml() {
     let calculationList = calculation.split(',')
     let operatorList = operator.split('')
     let text = ''
     for (let i = 0; i < calculationList.length; i++) {
         text += ' ' + calculationList[i] + ' ' + (operatorList[i] || '')
-        console.log(text);
     }
     cal.innerHTML = text;
 }
@@ -82,18 +84,22 @@ function doOperation() {
         let o = operatorList[i]
         switch (o) {
             case '+':
-                result += parseInt(calculationList[i + 1]);
+                result += parseInt(calculationList[i + 1]) || 0;
                 break;
             case '-':
-                result -= parseInt(calculationList[i + 1]);
+                result -= parseInt(calculationList[i + 1]) || 0;
                 break;
             case '*':
-                result *= parseInt(calculationList[i + 1]);
+                result *= parseInt(calculationList[i + 1]) || 1;
                 break;
             case '/':
-                result /= parseInt(calculationList[i + 1]);
+                result /= parseInt(calculationList[i + 1]) || 1;
         }
-        console.log('RES : ' + result)
+        res.innerHTML = result;
+        console.log(result)
+        console.log('Calculation :' + calculation + ' Operator : ' + operator)
+    }
+    if (calculationList.length <= 1) {
         res.innerHTML = result;
     }
 }
