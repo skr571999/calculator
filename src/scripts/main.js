@@ -44,7 +44,7 @@ function putVal(a) {
                 alert('Operation Not Possible')
             }
             break;
-        case 'clear':
+        case 'Backspace':
             if (calculation[calculation.length - 1] === ',') {
                 operator = operator.trim().slice(0, (operator.length - 1))
             }
@@ -97,8 +97,8 @@ function doOperation() {
                 result /= parseInt(calculationList[i + 1]) || 1;
         }
         res.innerHTML = result;
-        console.log(result)
-        console.log('Calculation :' + calculation + ' Operator : ' + operator)
+        // console.log(result)
+        // console.log('Calculation :' + calculation + ' Operator : ' + operator)
     }
     if (calculationList.length <= 1) {
         res.innerHTML = result;
