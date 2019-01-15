@@ -71,10 +71,11 @@ body {
         border: none;
         transition: .1s ease-in;
         &:hover {
-            background-color: #e0e0e0;
-            box-shadow: 0 0 3px #4d4d4d;
+            cursor: pointer;
         }
         &:active {
+            background-color: #e0e0e0;
+            box-shadow: 0 0 3px #4d4d4d;
             background-color: #ebebeb;
             border: none;
         }
@@ -104,4 +105,9 @@ body {
             background-color: #839aff;
         }
     }
+}
+
+.btnStyle {
+    border-color: #4d4d4d;
+    box-shadow: 0 0 3px #4d4d4d;
 }

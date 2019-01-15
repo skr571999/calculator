@@ -59,9 +59,18 @@
 
     <script src="scripts/main.js"></script>
     <script>
+        function removeTransition(e) {
+            if (e.propertyName !== 'box-shadow') return;
+            e.target.classList.remove('btnStyle');
+            console.log(e.propertyName)
+        }
+
+        const keys = Array.from(document.querySelectorAll('button'));
+        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
         window.addEventListener('keydown', (e) => {
             let value = document.querySelector(`button[data-value="${e.key}"]`)
             if (!value) return;
+            value.classList.add('btnStyle')
             putVal(e.key);
         })
     </script>
