@@ -97,11 +97,9 @@ body {
         background-color: #fafafa;
     }
     .operationButton {
-        &:hover {
+        &:active {
             background-color: #3b5fff;
             color: white;
-        }
-        &:active {
             background-color: #839aff;
         }
     }
