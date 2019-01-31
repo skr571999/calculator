@@ -45,6 +45,8 @@ function putVal(a) {
             }
             break;
         case 'Backspace':
+            // console.log(result)
+            console.log('Calculation :' + calculation + ' Operator : ' + operator)
             if (calculation[calculation.length - 1] === ',') {
                 operator = operator.trim().slice(0, (operator.length - 1))
             }
@@ -54,6 +56,7 @@ function putVal(a) {
             } else {
                 operatorStatus = false;
             }
+            console.log('Calculation :' + calculation + ' Operator : ' + operator)
             doOperation();
             updateHtml();
             break;
@@ -91,14 +94,16 @@ function doOperation() {
                 result -= parseInt(calculationList[i + 1]) || 0;
                 break;
             case '*':
-                result *= parseInt(calculationList[i + 1]) || 1;
+                result *= parseInt(calculationList[i + 1]);
                 break;
             case '/':
-                result /= parseInt(calculationList[i + 1]) || 1;
+                result /= parseInt(calculationList[i + 1]);
         }
         res.innerHTML = result;
-        // console.log(result)
-        // console.log('Calculation :' + calculation + ' Operator : ' + operator)
+    }
+    // console.log(calculationList.length + ' cal : ' + calculationList[calculationList.length - 1])
+    if (calculationList[calculationList.length - 1] === '') {
+        res.innerHTML = ''
     }
     if (calculationList.length <= 1) {
         res.innerHTML = result;
