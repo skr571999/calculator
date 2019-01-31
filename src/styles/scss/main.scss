@@ -71,10 +71,11 @@ body {
         border: none;
         transition: .1s ease-in;
         &:hover {
-            background-color: #e0e0e0;
-            box-shadow: 0 0 3px #4d4d4d;
+            cursor: pointer;
         }
         &:active {
+            background-color: #e0e0e0;
+            box-shadow: 0 0 3px #4d4d4d;
             background-color: #ebebeb;
             border: none;
         }
@@ -96,12 +97,30 @@ body {
         background-color: #fafafa;
     }
     .operationButton {
-        &:hover {
+        &:active {
             background-color: #3b5fff;
             color: white;
-        }
-        &:active {
             background-color: #839aff;
         }
+    }
+}
+
+.btnStyle {
+    border-color: #4d4d4d;
+    box-shadow: 0 0 3px #4d4d4d;
+}
+
+.checkBtn{
+    display: none;
+    position: absolute;
+    right: 4vh;
+    cursor: pointer;
+    padding: .5em;
+    background-color: $primary-color;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 0 0 2px black;
+    &:hover{
+        background-color: #fff;
     }
 }

@@ -42,6 +42,16 @@ function scriptTask() {
         .pipe(dest(d + 'scripts/'))
 }
 
+function manifest() {
+    return src(s + 'others/manifest.json')
+        .pipe(dest(d))
+}
+
+function serviceWorker() {
+    return src(s + 'others/sw.js')
+        .pipe(dest(d))
+}
+
 function imageminTask() {
     return src(s + 'images/**/*')
         .pipe(newer(d + 'images/**/*'))
@@ -60,6 +70,8 @@ function serverTask() {
     watch(s + 'styles/scss/**/*.scss', { ignoreInitial: false }, scssTask)
     watch(s + 'scripts/**/*.js', { ignoreInitial: false }, scriptTask)
     watch(s + 'images/**/*', { ignoreInitial: false }, imageminTask)
+    watch(s + 'others/manifest.json', { ignoreInitial: false }, manifest)
+    watch(s + 'others/sw.js', { ignoreInitial: false }, serviceWorker)
     watch(d + '**/*').on('change', browserSync.reload);
 }
 
