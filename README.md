@@ -1,12 +1,17 @@
 # calculator
 
-## Usage
-```
-$ git clone https://github.com/skr571999/calculator.git
-$ cd calculator
-$ npm i
-$ gulp
+## Notes
+
+```sh
+git clone REPO_URL
+cd calculator
+npm i
+npm run start
 ```
 
-## Requirements
-- `NodeJS` Installed
+## Features
+
+- Support KeyBoard typing
+- Installable
+- Fully Responsive for Mobile also
+- CSS Grid Based Styling

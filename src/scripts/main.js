@@ -8,8 +8,8 @@ let operatorStatus = true
 
 for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener('click', (e) => {
-        if (e.srcElement.getAttribute('data-value') !== '')
-            putVal(e.srcElement.getAttribute('data-value'))
+        if (e.target.getAttribute('data-value') !== '')
+            putVal(e.target.getAttribute('data-value'))
     })
 }
 
@@ -41,12 +41,10 @@ function putVal(a) {
                 updateHtml();
                 operatorStatus = true;
             } else {
-                alert('Operation Not Possible')
+                alert('Invalid Operation')
             }
             break;
         case 'Backspace':
-            // console.log(result)
-            console.log('Calculation :' + calculation + ' Operator : ' + operator)
             if (calculation[calculation.length - 1] === ',') {
                 operator = operator.trim().slice(0, (operator.length - 1))
             }
@@ -56,7 +54,6 @@ function putVal(a) {
             } else {
                 operatorStatus = false;
             }
-            console.log('Calculation :' + calculation + ' Operator : ' + operator)
             doOperation();
             updateHtml();
             break;
@@ -101,7 +98,6 @@ function doOperation() {
         }
         res.innerHTML = result;
     }
-    // console.log(calculationList.length + ' cal : ' + calculationList[calculationList.length - 1])
     if (calculationList[calculationList.length - 1] === '') {
         res.innerHTML = ''
     }
