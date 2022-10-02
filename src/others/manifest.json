@@ -1,19 +1,20 @@
 {
     "short_name": "Calculator",
-    "name": "SKR Calculator",
+    "name": "Calculator | SKR",
     "icons": [
         {
-            "src": "./images/icon-192x192.png",
+            "src": "./images/icon-192.png",
             "type": "image/png",
             "sizes": "192x192"
         },
         {
-            "src": "./images/icon-512x512.png",
+            "src": "./images/icon-512.png",
             "type": "image/png",
             "sizes": "512x512"
         }
     ],
     "start_url": "./index.html",
+    "id": "./index.html",
     "background_color": "#a4a4a4",
     "orientation": "portrait",
     "display": "standalone",
