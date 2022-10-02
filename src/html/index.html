@@ -1,66 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="description" content="Calculator WebApp | Installable | Mobile Responsive | Support Keyboard typing | PWA" />
+        <title>Calculator</title>
+        <meta name="theme-color" content="#e4e4e4" />
+        <link rel="icon" sizes="192x192" href="./images/icon-192.png" />
+        <link rel="apple-touch-icon" href="./images/icon-192.png" />
+        <link rel="stylesheet" href="./styles/main.css" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Calculator</title>
-    <meta name="theme-color" content="#e4e4e4">
-    <link rel="icon" sizes="192x192" href="./images/icon.png">
-    <link rel="stylesheet" href="./styles/main.css">
+        <link rel="manifest" href="./manifest.json" />
+    </head>
 
-    <link rel="manifest" href="./manifest.json">
-</head>
+    <body>
+        <section class="titleContainer">
+            <div>
+                <span class="title">Calculator</span>
+                <button class="checkBtn">Add to Home Screen</button>
+            </div>
+        </section>
+        <section class="calculationContainer">
+            <div class="calculation"></div>
+            <div class="result"></div>
+        </section>
+        <section class="buttonContainer">
+            <button aria-label="Clear All" data-value="clearAll" class="item1">CE</button>
+            <button aria-label="Clear One" class="plusMinus clear" data-value="Backspace" style="background-image: url(images/clear.png)"></button>
+            <button aria-label="Seven" class="numButton" data-value="7">7</button>
+            <button aria-label="Eight" class="numButton" data-value="8">8</button>
+            <button aria-label="Nine" class="numButton" data-value="9">9</button>
+            <button aria-label="Add" class="operationButton" data-value="+">+</button>
+            <button aria-label="Four" class="numButton" data-value="4">4</button>
+            <button aria-label="Five" class="numButton" data-value="5">5</button>
+            <button aria-label="Six" class="numButton" data-value="6">6</button>
+            <button aria-label="Subtract" class="operationButton" data-value="-">-</button>
+            <button aria-label="One" class="numButton" data-value="1">1</button>
+            <button aria-label="Two" class="numButton" data-value="2">2</button>
+            <button aria-label="Three" class="numButton" data-value="3">3</button>
+            <button aria-label="Multiply" class="operationButton" data-value="*">*</button>
+            <button aria-label="Zero" class="numButton zero" data-value="0">0</button>
+            <button aria-label="Divide" class="operationButton" data-value="/">/</button>
+        </section>
 
-<body>
-    <section class="titleContainer">
-        <div>
-            <a href="">Calculator</a>
-            <button class="checkBtn">Add to Home Screen</button>
-        </div>
-    </section>
-    <section class="calculationContainer">
-        <div class="calculation"></div>
-        <div class="result"></div>
-    </section>
-    <section class="buttonContainer">
-        <button data-value="clearAll" class="item1">CE</button>
-        <button class="plusMinus clear" data-value="Backspace" style="background-image: url(images/clear.png)"></button>
-        <button class="numButton" data-value="7">7</button>
-        <button class="numButton" data-value="8">8</button>
-        <button class="numButton" data-value="9">9</button>
-        <button class="operationButton" data-value="+">+</button>
-        <button class="numButton" data-value="4">4</button>
-        <button class="numButton" data-value="5">5</button>
-        <button class="numButton" data-value="6">6</button>
-        <button class="operationButton" data-value="-">-</button>
-        <button class="numButton" data-value="1">1</button>
-        <button class="numButton" data-value="2">2</button>
-        <button class="numButton" data-value="3">3</button>
-        <button class="operationButton" data-value="*">✕</button>
-        <button class="numButton zero" data-value="0">0</button>
-        <button class="operationButton" data-value="/">÷</button>
-    </section>
+        <script src="./scripts/install.js"></script>
 
-    <script src="./scripts/install.js"></script>
+        <script src="scripts/main.js"></script>
+        <script>
+            function removeTransition(e) {
+                if (e.propertyName !== 'box-shadow') return;
+                e.target.classList.remove('btnStyle');
+            }
 
-    <script src="scripts/main.js"></script>
-    <script>
-        function removeTransition(e) {
-            if (e.propertyName !== 'box-shadow') return;
-            e.target.classList.remove('btnStyle');
-        }
-
-        const keys = Array.from(document.querySelectorAll('button'));
-        keys.forEach(key => key.addEventListener('transitionend', removeTransition));
-        window.addEventListener('keydown', (e) => {
-            let value = document.querySelector(`button[data-value="${e.key}"]`)
-            if (!value) return;
-            value.classList.add('btnStyle')
-            putVal(e.key);
-        })
-    </script>
-</body>
-
+            const keys = Array.from(document.querySelectorAll('button'));
+            keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
+            window.addEventListener('keydown', (e) => {
+                let value = document.querySelector(`button[data-value="${e.key}"]`);
+                if (!value) return;
+                value.classList.add('btnStyle');
+                putVal(e.key);
+            });
+        </script>
+    </body>
 </html>

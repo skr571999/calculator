@@ -18,7 +18,7 @@ body {
     div {
         margin-top: 2vh;
         padding-left: 2vh;
-        a {
+        span.title {
             color: black;
             text-decoration: none;
             font-family: sans-serif;
@@ -70,14 +70,14 @@ body {
         background-color: #EEEEEE;
         border: none;
         transition: .1s ease-in;
+        border-radius: .4rem;
         &:hover {
             cursor: pointer;
         }
         &:active {
-            background-color: #e0e0e0;
             box-shadow: 0 0 3px #4d4d4d;
             background-color: #ebebeb;
-            border: none;
+            transform: scale(.98);
         }
         &:focus {
             outline: 0;
