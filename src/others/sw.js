@@ -3,6 +3,7 @@ const contentToCache = [
     './index.html',
     './styles/main.css',
     './images/clear.png',
+    './images/icon-144.png',
     './images/icon-192.png',
     './images/icon-512.png',
     './scripts/main.js',
