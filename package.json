@@ -10,11 +10,11 @@
   "author": "Sachin Kumar Rajput",
   "license": "ISC",
   "devDependencies": {
-    "browser-sync": "^2.26.3",
-    "gulp": "^4.0.0",
-    "gulp-imagemin": "^5.0.3",
+    "browser-sync": "^2.27.11",
+    "gulp": "^4.0.2",
+    "gulp-imagemin": "^8.0.0",
     "gulp-newer": "^1.4.0",
-    "gulp-sass": "^4.0.2"
-  },
-  "dependencies": {}
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.58.0"
+  }
 }

@@ -17,12 +17,17 @@ body {
     height: 7vh;
     div {
         margin-top: 2vh;
-        padding-left: 2vh;
+        padding: 0 2vh;
+        display: flex;
+        justify-content: space-between;
         span.title {
             color: black;
             text-decoration: none;
             font-family: sans-serif;
             font-size: 3vh;
+        }
+        span .github{
+            width: 2rem;
         }
     }
 }

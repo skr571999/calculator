@@ -3,10 +3,8 @@
 ## Notes
 
 ```sh
-git clone REPO_URL
-cd calculator
 npm i
-npm run start
+npm start
 ```
 
 ## Features

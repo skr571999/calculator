@@ -1,8 +1,8 @@
 const { src, dest, watch } = require('gulp');
-const scss = require('gulp-sass');
+const scss = require('gulp-sass')(require('sass'))
 const browserSync = require('browser-sync');
-const imagemin = require('gulp-imagemin');
-const newer = require('gulp-newer');
+// const imagemin = require('gulp-imagemin');
+// const newer = require('gulp-newer');
 
 const s = 'src/';
 const d = 'public/';
@@ -36,8 +36,8 @@ function serviceWorker() {
 
 function imageminTask() {
     return src(s + 'images/**/*')
-        .pipe(newer(d + 'images/**/*'))
-        .pipe(imagemin({ optimizationLevel: 5 }))
+        // .pipe(newer(d + 'images/**/*'))
+        // .pipe(imagemin({ optimizationLevel: 5 }))
         .pipe(dest(d + 'images/'))
         .pipe(browserSync.stream());
 }
